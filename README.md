@@ -92,3 +92,5 @@ ClimateScope transforms raw global weather data into structured insights and int
 
 Milestone 1 focused on data preparation and cleaning.
 Milestone 2 focused on statistical analysis and dashboard development.
+_Last updated for Milestone 2 submission._
+### Milestone 2 Final Submission
