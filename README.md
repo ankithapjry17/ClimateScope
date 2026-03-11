@@ -92,5 +92,23 @@ ClimateScope transforms raw global weather data into structured insights and int
 
 Milestone 1 focused on data preparation and cleaning.
 Milestone 2 focused on statistical analysis and dashboard development.
-_Last updated for Milestone 2 submission._
-### Milestone 2 Final Submission
+
+## Milestone 3: Visualization Development & Interactivity
+
+In this milestone, an interactive climate analytics dashboard was developed using Streamlit and Plotly.
+
+### Features Implemented
+- Interactive Streamlit dashboard
+- Country and month selection filters
+- Temperature range slider for dynamic analysis
+- Key climate KPI metrics
+- Seasonal temperature trend visualization
+- Regional temperature comparison
+- Correlation heatmap analysis
+- Extreme weather detection
+- Global temperature distribution map
+- Wind speed vs temperature analysis
+- Temperature distribution plots
+- Key climate insights section
+
+The dashboard enables users to explore climate patterns interactively and identify important environmental trends across different regions.
