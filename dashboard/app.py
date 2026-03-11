@@ -121,11 +121,30 @@ selected_country = st.sidebar.selectbox("Select Country", countries)
 months = sorted(df['month'].unique())
 selected_month = st.sidebar.selectbox("Select Month", months)
 
+temp_range = st.sidebar.slider(
+    "Temperature Range (°C)",
+    float(df["temperature_celsius"].min()),
+    float(df["temperature_celsius"].max()),
+    (
+        float(df["temperature_celsius"].min()),
+        float(df["temperature_celsius"].max())
+    )
+)
+
 # -------------------------------
 # Filter Data
 # -------------------------------
-country_df = df[df['country'] == selected_country]
-region_df = df[df['month'] == selected_month]
+country_df = df[
+    (df['country'] == selected_country) &
+    (df['temperature_celsius'] >= temp_range[0]) &
+    (df['temperature_celsius'] <= temp_range[1])
+]
+
+region_df = df[
+    (df['month'] == selected_month) &
+    (df['temperature_celsius'] >= temp_range[0]) &
+    (df['temperature_celsius'] <= temp_range[1])
+]
 
 # -------------------------------
 # KPI Section
@@ -258,3 +277,113 @@ fig_box = px.box(
 st.plotly_chart(fig_box, use_container_width=True)
 
 st.info("Boxplot shows temperature spread and potential outliers.")
+
+st.divider()
+
+st.subheader("🌡 Temperature Distribution")
+
+fig_hist = px.histogram(
+    country_df,
+    x="temperature_celsius",
+    nbins=30,
+    title=f"Temperature Distribution - {selected_country}",
+)
+
+fig_hist.update_layout(
+    xaxis_title="Temperature (°C)",
+    yaxis_title="Frequency"
+)
+
+st.plotly_chart(fig_hist, use_container_width=True)
+
+# -------------------------------
+# Wind Speed vs Temperature
+# -------------------------------
+
+st.divider()
+
+st.subheader("💨 Wind Speed vs Temperature")
+
+fig_scatter = px.scatter(
+    country_df,
+    x="wind_kph",
+    y="temperature_celsius",
+    color="temperature_celsius",
+    title=f"Wind Speed vs Temperature - {selected_country}",
+)
+
+fig_scatter.update_layout(
+    xaxis_title="Wind Speed (kph)",
+    yaxis_title="Temperature (°C)"
+)
+
+st.plotly_chart(fig_scatter, use_container_width=True)
+
+# -------------------------------
+# Global Weather Map
+# -------------------------------
+
+st.divider()
+
+st.subheader("🌍 Global Temperature Map")
+
+fig_map = px.scatter_geo(
+    df,
+    lat="latitude",
+    lon="longitude",
+    color="temperature_celsius",
+    hover_name="country",
+    title="Global Temperature Distribution",
+    color_continuous_scale="Turbo"
+)
+
+fig_map.update_layout(
+    geo=dict(
+        showland=True,
+        landcolor="rgb(217, 217, 217)"
+    )
+)
+
+st.plotly_chart(fig_map, use_container_width=True)
+
+# -------------------------------
+# Top 10 Hottest Countries
+# -------------------------------
+
+st.divider()
+
+st.subheader("🔥 Top 10 Hottest Countries")
+
+top_hot = df.groupby("country")["temperature_celsius"].mean().sort_values(ascending=False).head(10)
+
+fig_hot = px.bar(
+    x=top_hot.values,
+    y=top_hot.index,
+    orientation="h",
+    title="Top 10 Countries with Highest Average Temperature",
+)
+
+fig_hot.update_layout(
+    xaxis_title="Average Temperature (°C)",
+    yaxis_title="Country"
+)
+
+st.plotly_chart(fig_hot, use_container_width=True)
+
+st.info("This chart highlights countries with the highest average temperature across the dataset.")
+
+# -------------------------------
+# Key Insights
+# -------------------------------
+
+st.divider()
+
+st.subheader("🔍 Key Climate Insights")
+
+st.success("Countries near the equator generally show higher average temperatures.")
+
+st.info("Wind speed and temperature show moderate correlation in some regions.")
+
+st.warning("Extreme temperature months can indicate potential climate anomalies.")
+
+st.success("Interactive filters allow exploration of climate patterns across countries and months.")
