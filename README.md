@@ -187,7 +187,7 @@ Milestone 4 ensures that the project is:
 
 ---
 
-# 🌍 User-Centric Enhancement & Deployment
+# 🌍 User-Centric Enhancement
 
 ## 🔹 Smart Travel Planner (New Feature)
 
