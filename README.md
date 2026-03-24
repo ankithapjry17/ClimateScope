@@ -93,7 +93,7 @@ ClimateScope transforms raw global weather data into structured insights and int
 Milestone 1 focused on data preparation and cleaning.
 Milestone 2 focused on statistical analysis and dashboard development.
 
-## Milestone 3: Visualization Development & Interactivity
+# Milestone 3: Visualization Development & Interactivity
 
 In this milestone, an interactive climate analytics dashboard was developed using Streamlit and Plotly.
 
@@ -202,31 +202,6 @@ To extend the project beyond analysis, a **Smart Travel Planner** feature has be
 
 ### 💡 Impact
 This feature transforms ClimateScope from a visualization tool into a **practical decision-making application**, enabling users to plan travel based on comfortable weather conditions.
-
----
-
-## 🚀 Dashboard Deployment
-
-To make the application accessible and usable in real-world scenarios, the dashboard can be deployed online.
-
-### 🔹 Deployment Platform
-- Streamlit Cloud
-
-### 🔹 Deployment Steps
-1. Push the complete project to GitHub
-2. Visit: https://streamlit.io/cloud
-3. Click on **"New App"**
-4. Select your GitHub repository
-5. Choose branch (main/master)
-6. Set the main file path:
-    dashboard/app.py
-
-7. Click **Deploy**
-
-### 🌐 Result
-- The dashboard will be hosted online
-- Accessible via a public URL
-- Can be shared with users, evaluators, and stakeholders
 
 ---
 
