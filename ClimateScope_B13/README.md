@@ -4,9 +4,11 @@
 
 ClimateScope is a data analytics project focused on analyzing global weather patterns using statistical methods and interactive visualization techniques.
 
-The project is divided into two milestones:
+The project is divided into four milestones:
 - Milestone 1: Data Preparation & Initial Analysis
 - Milestone 2: Statistical Analysis & Interactive Dashboard Development
+- Milestone 3: Visualization Development & Interactivity
+- Milestone 4: Finalization, Testing & Reporting
 
 ---
 
@@ -74,25 +76,6 @@ The dashboard was built using Streamlit with:
 
 ---
 
-# Project Structure
-
-ClimateScope/
-├── dashboard/
-├── src/
-├── milestone1_report.md
-├── milestone2_report.md
-├── README.md
-└── requirements.txt
-
----
-
-# Conclusion
-
-ClimateScope transforms raw global weather data into structured insights and interactive visualizations.
-
-Milestone 1 focused on data preparation and cleaning.
-Milestone 2 focused on statistical analysis and dashboard development.
-
 # Milestone 3: Visualization Development & Interactivity
 
 In this milestone, an interactive climate analytics dashboard was developed using Streamlit and Plotly.
@@ -110,8 +93,6 @@ In this milestone, an interactive climate analytics dashboard was developed usin
 - Wind speed vs temperature analysis
 - Temperature distribution plots
 - Key climate insights section
-
-The dashboard enables users to explore climate patterns interactively and identify important environmental trends across different regions.
 
 ---
 
@@ -177,16 +158,6 @@ A structured presentation was created covering:
 
 ---
 
-## ✅ Outcome
-
-Milestone 4 ensures that the project is:
-- Thoroughly tested and validated
-- Properly documented
-- Ready for presentation
-- Enhanced with real-world usability
-
----
-
 # 🌍 User-Centric Enhancement
 
 ## 🔹 Smart Travel Planner (New Feature)
@@ -205,13 +176,24 @@ This feature transforms ClimateScope from a visualization tool into a **practica
 
 ---
 
-## 🎯 Final Outcome
+## ▶️ How to Run the Project
 
-With the addition of the Travel Planner and deployment capability, ClimateScope now:
-- Provides interactive climate insights
-- Supports real-world applications
-- Enables global accessibility through web deployment
+1. Clone the repository  
+2. Install dependencies:
+   pip install -r requirements.txt
+3. Place dataset file in:
+   data/processed/final.parquet
+4. Run the dashboard:
+   streamlit run dashboard/app.py
 
-This ensures the project delivers both **analytical depth and practical value to users**.
 
 ---
+
+## ✅ Final Outcome
+
+ClimateScope now:
+- Provides interactive climate insights  
+- Supports real-world applications  
+- Enables global accessibility through dashboard deployment  
+
+This ensures the project delivers both **analytical depth and practical value**.
